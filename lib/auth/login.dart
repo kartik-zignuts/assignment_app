@@ -16,11 +16,11 @@ class Login extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: Stack(children: [
           Container(
-            margin: EdgeInsets.only(top: height * .15, left: 20),
+            margin: EdgeInsets.only(top: height * .20, left: 20),
             child: const Text(
               'Welcome \nBacK',
               style: TextStyle(
-                  fontSize: 35,
+                  fontSize: 37,
                   fontWeight: FontWeight.w500,
                   color: Colors.white),
             ),
@@ -30,25 +30,25 @@ class Login extends StatelessWidget {
               margin: EdgeInsets.only(top: height * .5, right: 25, left: 25),
               child: Column(
                 children: [
-                  TextField(
+                  TextFormField(
                     decoration: InputDecoration(
-                        hintText: 'Email',
+                        labelText: 'Email',
                         fillColor: Colors.grey.shade100,
                         filled: true,
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                            borderRadius: BorderRadius.circular(20))),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  TextField(
+                  TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
-                        hintText: 'Password',
+                        labelText: 'Password',
                         fillColor: Colors.grey.shade100,
                         filled: true,
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                            borderRadius: BorderRadius.circular(20))),
                   ),
                   const SizedBox(
                     height: 25,
@@ -64,12 +64,48 @@ class Login extends StatelessWidget {
                               fontWeight: FontWeight.w700, fontSize: 27),
                         ),
                         CircleAvatar(
-                          radius: 31,
-                          backgroundColor: Color(0xff4c505b),
-                        )
+                            radius: 31,
+                            backgroundColor: Color(0xff4c505b),
+                            child: IconButton(
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                )))
                       ],
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'register');
+                            },
+                            child: const Text(
+                              'Sing Up',
+                              style: TextStyle(
+                                  color: Color(0xff4c505b),
+                                  fontSize: 22,
+                                  decoration: TextDecoration.underline),
+                            )),
+                        const TextButton(
+                            onPressed: null,
+                            child: Text(
+                              'Forgot Password',
+                              style: TextStyle(
+                                  color: Color(0xff4c505b),
+                                  fontSize: 22,
+                                  decoration: TextDecoration.underline),
+                            ))
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

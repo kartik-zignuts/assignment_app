@@ -1,10 +1,12 @@
-import 'package:assignment_app/auth/login.dart';
-import 'package:assignment_app/auth/register.dart';
-import 'package:assignment_app/home/homepage.dart';
+import 'package:assignment_app/pages/auth/login.dart';
+import 'package:assignment_app/pages/auth/register.dart';
+import 'package:assignment_app/pages/home/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme:
+          ThemeData(primarySwatch: Colors.green, canvasColor: Colors.green[50]),
       title: 'Assignment',
       // theme: ThemeData(primarySwatch: Colors.blueGrey),
       debugShowCheckedModeBanner: false,
@@ -24,4 +28,6 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+  // ignore: use_key_in_widget_constructors
+
 }

@@ -1,4 +1,4 @@
-import 'package:assignment_app/auth/widget/emailFieldWidget.dart';
+import 'package:assignment_app/pages/auth/widget/emailFieldWidget.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {

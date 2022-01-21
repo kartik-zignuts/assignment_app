@@ -37,6 +37,7 @@ class _RegisterState extends State<Register> {
               image: AssetImage('assets/images/register.png'),
               fit: BoxFit.cover)),
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -45,7 +46,7 @@ class _RegisterState extends State<Register> {
         body: Stack(
           children: [
             Container(
-              margin: EdgeInsets.only(top: screenHeight * .10, left: 20),
+              margin: EdgeInsets.only(top: screenHeight * .048, left: 20),
               child: const Text('Create \nAccount',
                   style: TextStyle(
                     color: Colors.white,

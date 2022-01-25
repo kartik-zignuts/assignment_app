@@ -1,9 +1,11 @@
-import 'package:assignment_app/pages/drawerPgaes/addresses/adressesPage.dart';
-import 'package:assignment_app/pages/drawerPgaes/paymentMethod/paymentMathod.dart';
+import 'package:assignment_app/pages/drawerPgaes/addresses/adresses_screen.dart';
+import 'package:assignment_app/pages/drawerPgaes/paymentMethod/payment_mathod.dart';
+
 import 'package:flutter/material.dart';
 
-class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({Key? key}) : super(key: key);
+// ignore: camel_case_types
+class Navigation_drawer extends StatelessWidget {
+  const Navigation_drawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,34 +40,34 @@ class NavigationDrawer extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.monetization_on,
                 text: 'Payment Method',
-                onclick: () => SelectItemNextPage(context, 0),
+                onclick: () => selectitemnextpage(context, 0),
               ),
               const SizedBox(
                 height: 4,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.location_on,
                 text: 'Addresses',
-                onclick: () => SelectItemNextPage(context, 1),
+                onclick: () => selectitemnextpage(context, 1),
               ),
               const SizedBox(
                 height: 4,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.lock,
                 text: 'Password',
-                onclick: () => SelectItemNextPage(context, 2),
+                onclick: () => selectitemnextpage(context, 2),
               ),
               const SizedBox(
                 height: 4,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.people,
                 text: 'Household',
-                onclick: () => SelectItemNextPage(context, 3),
+                onclick: () => selectitemnextpage(context, 3),
               ),
               const SizedBox(
                 height: 17,
@@ -80,50 +82,50 @@ class NavigationDrawer extends StatelessWidget {
               const SizedBox(
                 height: 17,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.info,
                 text: 'User info',
-                onclick: () => SelectItemNextPage(context, 4),
+                onclick: () => selectitemnextpage(context, 4),
               ),
               const SizedBox(
                 height: 4,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.chat,
                 text: 'Contact us',
-                onclick: () => SelectItemNextPage(context, 5),
+                onclick: () => selectitemnextpage(context, 5),
               ),
               const SizedBox(
                 height: 4,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.file_copy,
                 text: 'Terms & conditions',
-                onclick: () => SelectItemNextPage(context, 6),
+                onclick: () => selectitemnextpage(context, 6),
               ),
               const SizedBox(
                 height: 4,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.question_answer,
                 text: 'FAQ',
-                onclick: () => SelectItemNextPage(context, 7),
+                onclick: () => selectitemnextpage(context, 7),
               ),
               const SizedBox(
                 height: 4,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.photo_album_outlined,
                 text: 'About the App',
-                onclick: () => SelectItemNextPage(context, 8),
+                onclick: () => selectitemnextpage(context, 8),
               ),
               const SizedBox(
                 height: 4,
               ),
-              BuildMenu(
+              buildmenu(
                 icon: Icons.logout,
                 text: 'Logout',
-                onclick: () => SelectItemNextPage(context, 9),
+                onclick: () => selectitemnextpage(context, 9),
               ),
             ],
           ),
@@ -133,7 +135,7 @@ class NavigationDrawer extends StatelessWidget {
   }
 }
 
-Widget BuildMenu({
+Widget buildmenu({
   required IconData icon,
   required String text,
   VoidCallback? onclick,
@@ -156,7 +158,7 @@ Widget BuildMenu({
   );
 }
 
-void SelectItemNextPage(BuildContext context, int index) {
+void selectitemnextpage(BuildContext context, int index) {
   Navigator.of(context).pop();
 
   switch (index) {

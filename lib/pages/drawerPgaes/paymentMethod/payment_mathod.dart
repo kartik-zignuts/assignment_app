@@ -1,4 +1,4 @@
-import 'package:assignment_app/pages/home/widget/navigatoreDrawer.dart';
+import 'package:assignment_app/pages/home/widget/navigatore_drawer.dart';
 import 'package:flutter/material.dart';
 
 class PaymentMethodPge extends StatelessWidget {
@@ -10,7 +10,7 @@ class PaymentMethodPge extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Payment Method'),
       ),
-      drawer: const NavigationDrawer(),
+      drawer: const Navigation_drawer(),
     );
   }
 }

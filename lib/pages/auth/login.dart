@@ -1,4 +1,4 @@
-import 'package:assignment_app/pages/auth/widget/emailFieldWidget.dart';
+import 'package:assignment_app/pages/auth/widget/email_field_widget.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -28,7 +28,7 @@ class _LoginState extends State<Login> {
           Container(
             margin: EdgeInsets.only(top: height * .15, left: 20),
             child: const Text(
-              'Welcome \nBacK',
+              'Welcome \nBack',
               style: TextStyle(
                   fontSize: 37,
                   fontWeight: FontWeight.w500,

@@ -1,4 +1,4 @@
-import 'package:assignment_app/pages/home/widget/navigatoreDrawer.dart';
+import 'package:assignment_app/pages/home/widget/navigatore_drawer.dart';
 import 'package:flutter/material.dart';
 
 class AddressesPage extends StatelessWidget {
@@ -10,7 +10,7 @@ class AddressesPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Addresses'),
       ),
-      drawer: const NavigationDrawer(),
+      drawer: const Navigation_drawer(),
     );
   }
 }

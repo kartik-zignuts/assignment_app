@@ -16,7 +16,7 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   int _selectindex = 0;
-  String _title = 'Some Default Value';
+  String _title = 'Home';
 
   final screens = const [
     HomeScreenOfHome(),
@@ -96,6 +96,10 @@ class _DashBoardState extends State<DashBoard> {
               _title = 'Categorites';
             }
             break;
+          default:
+            {
+              _title = 'Home Page';
+            }
         }
       });
 

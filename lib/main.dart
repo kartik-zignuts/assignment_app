@@ -1,6 +1,5 @@
 import 'package:assignment_app/pages/auth/login.dart';
 import 'package:assignment_app/pages/auth/register.dart';
-import 'package:assignment_app/pages/home/bottome_navigationBar/home_screenOfHome.dart';
 import 'package:assignment_app/pages/home/dash_board.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,10 +20,10 @@ class MyApp extends StatelessWidget {
       title: 'Assignment',
       // theme: ThemeData(primarySwatch: Colors.blueGrey),
       debugShowCheckedModeBanner: false,
-      initialRoute: 'dashBoard',
+      initialRoute: 'register',
       routes: {
         'login': (context) => const Login(),
-        'register': (context) => const Register(),
+        'register': (context) => Register(),
         'dashBoard': (context) => const DashBoard(),
       },
     );

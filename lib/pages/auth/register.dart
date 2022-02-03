@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'api_services.dart';
 import 'package:http/http.dart' as http;
 
 class Register extends StatefulWidget {
@@ -39,21 +38,21 @@ class _RegisterState extends State<Register> {
   //   });
   // }
 
-  static final baseURL =
-      "https://e3-qkmountain.qkinnovations.com/qkm-andermatt-backend/api/";
-  static final postsEndpoint = baseURL + "user/appLogin";
+  static final baseURL = Uri.parse(
+      "https://e3-qkmountain.qkinnovations.com/qkm-andermatt-backend/api/user/appLogin");
+  // static final postsEndpoint = baseURL + "user/appLogin";
   // int device_token = 1;
   // String? device_type = "A";
   // int category_id = 2;
   Future createPost() async {
-    final url = Uri.parse(postsEndpoint);
-    final response = await http.post(url,
+    // final url = Uri.parse(postsEndpoint);
+    final response = await http.post(baseURL,
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: jsonEncode({
-          'email': "tueinst@gmail.com",
-          'password': "123456",
+          'email': widget.textcontroller.text,
+          'password': widget.emailcontroller.text,
           'device_token': "1",
           'device_type': 'A',
           'category_id': "2"
@@ -88,28 +87,34 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: widget.textcontroller,
-              // onChanged: (value) => savetext(value),
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: widget.textcontroller,
+                  // onChanged: (value) => savetext(value),
+                ),
+                TextField(
+                  controller: widget.emailcontroller,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                FloatingActionButton(
+                    child: const Icon(Icons.next_plan),
+                    onPressed: () => {
+                          Navigator.popAndPushNamed(context, 'dashBoard'),
+                          createPost(),
+                          // createPost(widget.textcontroller.text,
+                          //     widget.emailcontroller.text)
+                          // callLoginApi(),
+                        })
+              ],
             ),
-            TextField(
-              controller: widget.emailcontroller,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            FloatingActionButton(
-                child: const Icon(Icons.next_plan),
-                onPressed: () => {
-                      Navigator.popAndPushNamed(context, 'dashBoard'),
-                      createPost(),
-                      // createPost(widget.textcontroller.text,
-                      //     widget.emailcontroller.text)
-                      // callLoginApi(),
-                    })
-          ],
+          ),
         ),
       ),
     );

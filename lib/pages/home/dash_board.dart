@@ -98,7 +98,7 @@ class _DashBoardState extends State<DashBoard> {
             break;
           default:
             {
-              _title = 'Home Page';
+              _title = 'More';
             }
         }
       });
@@ -107,19 +107,20 @@ class _DashBoardState extends State<DashBoard> {
     return AppBar(
       backgroundColor: Colors.green.shade800,
       elevation: 5,
-      actions: const [
+      actions: [
         Padding(
-          padding: EdgeInsets.only(right: 10.0),
+          padding: const EdgeInsets.only(right: 10.0),
           child: IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 35,
-            ),
-            onPressed: null,
-          ),
+              icon: const Icon(
+                Icons.search,
+                color: Colors.white,
+                size: 35,
+              ),
+              onPressed: () {
+                showSearch(context: context, delegate: BrowserSearch());
+              }),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(right: 10.0),
           child: IconButton(
             icon: Icon(
@@ -153,5 +154,35 @@ class _DashBoardState extends State<DashBoard> {
 
 // elevation: ,
     );
+  }
+}
+
+class BrowserSearch extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query.isEmpty ? close(context, null) : query = '';
+          },
+          icon: const Icon(Icons.close))
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () => close(context, null),
+        icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return Container();
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return Container();
   }
 }

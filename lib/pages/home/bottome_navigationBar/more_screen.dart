@@ -1,14 +1,31 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-class MoreScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+class MoreScreen extends StatefulWidget {
   const MoreScreen({Key? key}) : super(key: key);
 
   @override
+  State<MoreScreen> createState() => _MoreScreenState();
+}
+
+class _MoreScreenState extends State<MoreScreen> {
+  @override
+  void initState() {
+    // Enable virtual display.
+    if (Platform.isAndroid) WebView.platform = AndroidWebView();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('More screen'),
+    return Scaffold(
+        body: SafeArea(
+      child: WebView(
+        initialUrl: 'https://flutter.dev',
+        //javascriptMode: JavascriptMode.unrestricted,
       ),
-    );
+    ));
   }
 }
